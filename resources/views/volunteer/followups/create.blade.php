@@ -1,0 +1,6 @@
+@extends('layouts.app')
+
+@section('content')
+    <div class="page-heading"><h1>Seguimiento de {{ $adoptionRequest->pet->name }}</h1><p>Registra los detalles de esta visita al nuevo hogar.</p></div>
+    <div class="surface" style="max-width: 720px;"><form method="POST" action="{{ route('followups.store', $adoptionRequest) }}" class="row g-3">@csrf<div class="col-md-6"><label class="form-label" for="visit_date">Fecha de visita</label><input id="visit_date" type="date" name="visit_date" class="form-control" value="{{ old('visit_date', now()->toDateString()) }}" required></div><div class="col-md-6"><label class="form-label" for="pet_condition">Condición de la mascota</label><select id="pet_condition" name="pet_condition" class="form-select"><option value="good">Buena condición</option><option value="needs_attention">Necesita atención</option></select></div><div class="col-12"><label class="form-label" for="notes">Notas de la visita</label><textarea id="notes" name="notes" rows="6" class="form-control" required>{{ old('notes') }}</textarea></div><div class="col-12"><button class="btn btn-primary" type="submit"><i class="bi bi-check-lg me-2"></i>Guardar seguimiento</button></div></form></div>
+@endsection
