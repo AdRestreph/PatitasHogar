@@ -115,7 +115,6 @@ species (1) ──< (N) pets (1) ──< (N) adoption_requests (1) ──< (N) f
 
 ## 📸 Capturas de pantalla
 
-> _Agregar aquí las capturas de pantalla del proyecto en funcionamiento (por ejemplo: catálogo de mascotas, formulario de solicitud de adopción, panel de administrador, panel de voluntario)._
 
 | Página de inicio | Catálogo de mascotas |
 |---|---|
