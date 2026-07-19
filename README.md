@@ -2,6 +2,10 @@
 
 **Estudiante:** Andrés David Restrepo Hernández
 
+## LINK:
+
+## VIDEO:
+
 ## 📋 Descripción
 
 PatitasHogar es una aplicación web desarrollada en **Laravel** para la gestión de adopciones de mascotas. Permite administrar el catálogo de animales disponibles, gestionar las solicitudes de adopción y hacer seguimiento post-adopción a través de visitas de voluntarios. El sistema maneja tres roles de usuario: **administrador**, **voluntario** y **adoptante**, cada uno con sus propias vistas y permisos.
