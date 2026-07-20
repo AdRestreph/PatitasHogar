@@ -19,7 +19,7 @@
            href="{{ route('dashboard') }}">
 
             <img
-                src="{{ asset('storage/images/logo.png') }}"
+                src="{{ asset('images/logo.png') }}"
                 alt="PatitasHogar"
                 class="navbar-logo"
                 width="48"
