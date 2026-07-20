@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PatitasHogar</title>
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,7 +21,7 @@
            href="{{ route('dashboard') }}">
 
             <img
-                src="{{ asset('storage/images/logo.png') }}"
+                src="{{ asset('images/logo.png') }}"
                 alt="PatitasHogar"
                 class="navbar-logo"
                 width="48"
