@@ -150,151 +150,69 @@
 
 <div class="col-lg-4 col-md-6">
 
-    <div class="card h-100">
+    <article class="card h-100 pet-card pet-card-admin">
 
         @if($pet->photo)
 
             <img src="{{ asset('storage/'.$pet->photo) }}"
-                 class="card-img-top"
-                 style="height:240px;object-fit:cover;">
+                 class="card-img-top pet-image"
+                 alt="{{ $pet->name }}">
 
         @else
 
-            <div
-                class="d-flex align-items-center justify-content-center"
-                style="
-                    height:240px;
-                    background:#FFE9E3;
-                    font-size:70px;
-                    color:#FF6B6B;
-                ">
-
-                <i class="bi bi-heart"></i>
-
+            <div class="pet-placeholder">
+                <i class="bi bi-heart-fill"></i>
             </div>
 
         @endif
 
         <div class="card-body">
 
-            <div class="d-flex justify-content-between">
+            <div class="d-flex justify-content-between align-items-start mb-2">
 
-                <h4>
-
-                    {{ $pet->name }}
-
-                </h4>
+                <h4 class="card-title mb-0">{{ $pet->name }}</h4>
 
                 @if($pet->status=="available")
-
-                    <span class="badge bg-success">
-
-                        Disponible
-
-                    </span>
-
+                    <span class="badge badge-status-available">Disponible</span>
                 @elseif($pet->status=="adopted")
-
-                    <span class="badge bg-primary">
-
-                        Adoptado
-
-                    </span>
-
+                    <span class="badge badge-status-adopted">Adoptado</span>
                 @else
-
-                    <span class="badge bg-secondary">
-
-                        {{ ucfirst($pet->status) }}
-
-                    </span>
-
+                    <span class="badge badge-status-pending">{{ ucfirst($pet->status) }}</span>
                 @endif
 
             </div>
 
-            <hr>
+            <p class="text-muted mb-3">{{ $pet->species->name }} &bull; {{ $pet->breed }}</p>
 
-            <p>
+            <div class="pet-meta-grid">
+                <div><i class="bi bi-hourglass-split"></i>{{ $pet->age_months }} meses</div>
+                <div><i class="bi bi-arrows-angle-expand"></i>{{ ucfirst($pet->size) }}</div>
+            </div>
 
-                <strong>Especie</strong><br>
+            <div class="pet-card-actions">
 
-                {{ $pet->species->name }}
-
-            </p>
-
-            <p>
-
-                <strong>Raza</strong><br>
-
-                {{ $pet->breed }}
-
-            </p>
-
-            <p>
-
-                <strong>Edad</strong><br>
-
-                {{ $pet->age_months }} meses
-
-            </p>
-
-            <p>
-
-                <strong>Tamaño</strong><br>
-
-                {{ ucfirst($pet->size) }}
-
-            </p>
-
-        </div>
-
-        <div class="card-footer bg-white border-0">
-
-            <div class="d-grid gap-2">
-
-                <a href="{{ route('pets.edit',$pet) }}"
-                   class="btn btn-outline-primary">
-
-                    <i class="bi bi-pencil-square me-2"></i>
-
-                    Editar
-
+                <a href="{{ route('pets.edit',$pet) }}" class="btn btn-outline-primary btn-sm">
+                    <i class="bi bi-pencil-square me-1"></i>Editar
                 </a>
 
-                <a href="{{ route('followups.history',$pet) }}"
-                   class="btn btn-outline-secondary">
-
-                    <i class="bi bi-clock-history me-2"></i>
-
-                    Historial
-
+                <a href="{{ route('followups.history',$pet) }}" class="btn btn-outline-secondary btn-sm">
+                    <i class="bi bi-clock-history me-1"></i>Historial
                 </a>
 
-                <form
-                    action="{{ route('pets.destroy',$pet) }}"
-                    method="POST">
-
+                <form action="{{ route('pets.destroy',$pet) }}" method="POST"
+                      onsubmit="return confirm('¿Eliminar a {{ $pet->name }}? Esta acción no se puede deshacer.');">
                     @csrf
-
                     @method('DELETE')
-
-                    <button
-                        class="btn btn-danger w-100">
-
-                        <i class="bi bi-trash me-2"></i>
-
-                        Eliminar
-
+                    <button class="btn btn-outline-danger btn-danger-icon" title="Eliminar" aria-label="Eliminar {{ $pet->name }}">
+                        <i class="bi bi-trash"></i>
                     </button>
-
                 </form>
 
             </div>
 
         </div>
 
-    </div>
+    </article>
 
 </div>
 

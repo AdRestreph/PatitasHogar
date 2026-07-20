@@ -215,11 +215,10 @@ h3{
 
 
 
-.pet-image {
-
-    height:260px;
+.pet-image,
+.card-img-top{
+    height:240px;
     object-fit:cover;
-
 }
 
 
@@ -283,6 +282,44 @@ h3{
 .form-label { font-weight: 600; }
 .form-control, .form-select { background-color: #fff; }
 .pet-card .card-footer { padding: 0 1rem 1rem; }
+.pet-card-admin .pet-card-actions {
+    display: flex;
+    gap: .5rem;
+}
+.pet-card-admin .pet-card-actions form { 
+    margin: 0; 
+}
+
+.pet-card-admin .pet-card-actions form:not(:has(.btn-danger-icon)) {
+    flex: 1;
+}
+
+.pet-card-admin .pet-card-actions form:not(:has(.btn-danger-icon)) .btn {
+    width: 100%;
+}
+.pet-card-admin .pet-card-actions .btn-danger-icon {
+    flex: 0 0 38px;
+    width: 38px;
+    height: 38px;
+    padding: 0;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:30%;
+}
+
+.pet-meta-grid {
+    background: #FFF6F3;
+    border-radius: 12px;
+    padding: .65rem .9rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: .4rem;
+    font-size: .85rem;
+    color: var(--text);
+    margin-bottom: 1rem;
+}
+.pet-meta-grid i { color: var(--primary); margin-right: .35rem; }
 .badge-status-pending { background: #fff3cd; color: #7a5b00; }
 .badge-status-approved, .badge-status-available { background: #d1e7dd; color: #146c43; }
 .badge-status-rejected, .badge-status-adopted { background: #f8d7da; color: #b02a37; }
@@ -301,3 +338,8 @@ h3{
 .timeline-content { background: #fff; border-radius: 18px; box-shadow: 0 8px 24px rgba(0,0,0,.05); padding: 1.5rem; }
 .timeline-date { color: #6c757d; font-size: .9rem; font-weight: 600; }
 @media (max-width: 575.98px) { .timeline { margin-left: 0; padding-left: 1.6rem; } .timeline-marker { height: 34px; left: -2.7rem; top: 1.25rem; width: 34px; } }
+
+.pet-meta-grid i,
+.pet-card-actions i {
+    -webkit-text-stroke: .4px currentColor;
+}

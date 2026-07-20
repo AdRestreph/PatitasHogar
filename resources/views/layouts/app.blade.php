@@ -14,10 +14,28 @@
 </head>
 <body>
     <nav class="navbar">
-        <div class="container d-flex flex-wrap align-items-center gap-3">
-            <a class="navbar-brand fw-bold me-auto" href="{{ route('dashboard') }}">PatitasHogar</a>
+    <div class="container d-flex flex-wrap align-items-center gap-3">
 
-            @auth
+        <a class="navbar-brand d-flex align-items-center me-auto"
+           href="{{ route('dashboard') }}">
+
+            <img
+                src="{{ asset('storage/images/logo.png') }}"
+                alt="PatitasHogar"
+                class="navbar-logo"
+                width="48"
+                height="48">
+
+            <div class="ms-3">
+
+                <div class="navbar-title">
+                    PatitasHogar
+                </div>
+
+            </div>
+
+        </a>
+        @auth
                 <div class="d-flex flex-wrap align-items-center gap-2">
                     @if (auth()->user()->role === 'admin')
                         <a class="nav-link" href="{{ route('pets.index') }}"><i class="bi bi-heart me-1"></i>Mascotas</a>
