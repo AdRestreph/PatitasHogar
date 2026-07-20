@@ -12,11 +12,30 @@ use Illuminate\Support\Facades\Storage;
 class PetController extends Controller
 {
 
-public function index()
+public function index(Request $request)
 {
-    $pets = Pet::with('species')->get();
+    $query = Pet::with('species');
 
-    return view('admin.pets.index',compact('pets'));
+    if ($request->filled('species')) {
+        $query->where('species_id', $request->species);
+    }
+
+    if ($request->filled('size')) {
+        $query->where('size', $request->size);
+    }
+
+    if ($request->filled('status')) {
+        $query->where('status', $request->status);
+    }
+
+    $pets = $query->get();
+
+    $species = Species::all();
+
+    return view(
+        'admin.pets.index',
+        compact('pets', 'species')
+    );
 }
 
 
@@ -107,15 +126,27 @@ public function update(Request $request, Pet $pet)
 }
 
 
-public function catalog()
+public function catalog(Request $request)
 {
-    $pets = Pet::where('status','available')
-    ->with('species')
-    ->get();
+    $query = Pet::with('species')
+        ->where('status', 'available');
 
+    if ($request->filled('species')) {
+        $query->where('species_id', $request->species);
+    }
 
-    return view('adopter.pets.index',
-    compact('pets'));
+    if ($request->filled('size')) {
+        $query->where('size', $request->size);
+    }
+
+    $pets = $query->get();
+
+    $species = Species::all();
+
+    return view(
+        'adopter.pets.index',
+        compact('pets', 'species')
+    );
 }
 
 public function show(Pet $pet)

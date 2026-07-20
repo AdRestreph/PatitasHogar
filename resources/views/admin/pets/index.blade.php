@@ -24,6 +24,126 @@
 
 </div>
 
+<form method="GET" class="card p-3 mb-4">
+
+    <div class="row">
+
+        <div class="col-md-4">
+
+            <label class="form-label">
+                Especie
+            </label>
+
+            <select
+                name="species"
+                class="form-select">
+
+                <option value="">
+                    Todas
+                </option>
+
+                @foreach($species as $item)
+
+                    <option
+                        value="{{ $item->id }}"
+                        @selected(request('species')==$item->id)>
+
+                        {{ $item->name }}
+
+                    </option>
+
+                @endforeach
+
+            </select>
+
+        </div>
+
+        <div class="col-md-3">
+
+            <label class="form-label">
+
+                Tamaño
+
+            </label>
+
+            <select
+                name="size"
+                class="form-select">
+
+                <option value="">
+                    Todos
+                </option>
+
+                <option
+                    value="small"
+                    @selected(request('size')=='small')>
+
+                    Pequeño
+
+                </option>
+
+                <option
+                    value="medium"
+                    @selected(request('size')=='medium')>
+
+                    Mediano
+
+                </option>
+
+                <option
+                    value="large"
+                    @selected(request('size')=='large')>
+
+                    Grande
+
+                </option>
+
+            </select>
+
+        </div>
+
+        <div class="col-md-3">
+
+            <label class="form-label">
+
+                Estado
+
+            </label>
+
+            <select
+                name="status"
+                class="form-select">
+
+                <option value="">
+                    Todos
+                </option>
+
+                <option value="available">
+                    Disponible
+                </option>
+
+                <option value="adopted">
+                    Adoptado
+                </option>
+
+            </select>
+
+        </div>
+
+        <div class="col-md-2 d-flex align-items-end">
+
+            <button class="btn btn-primary w-100">
+
+                Filtrar
+
+            </button>
+
+        </div>
+
+    </div>
+
+</form>
+
 <div class="row g-4">
 
 @forelse($pets as $pet)
