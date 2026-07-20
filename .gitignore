@@ -44,4 +44,4 @@ Homestead.json
 
 # Archivos temporales
 *.tmp
-*.temp
+*.temp/public/storage
