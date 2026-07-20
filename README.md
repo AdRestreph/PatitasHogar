@@ -4,7 +4,7 @@
 
 ## LINK: https://patitashogar.casa/
 
-## VIDEO:
+## VIDEO: https://www.loom.com/share/a98ae1ab37ae43eaa32aebb5a6749e
 
 ## 📋 Descripción
 
